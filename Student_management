@@ -1,0 +1,44 @@
+from tkinter import *
+root=Tk()
+def getvals():
+    print("Name,id,cure,city,amitian\n")
+    print( f"{namevalue.get(),idvalue.get(), coursevalue.get(), cityvalue.get(), amitianvalue.get()}")
+    with open("tut12.txt","a") as f:
+
+        f.write(f"{namevalue.get(),idvalue.get(), coursevalue.get(), cityvalue.get(), amitianvalue.get()}\n")
+
+root.geometry("480x480")
+
+Label(root,text="Student Management",font="comicsansms 16 bold",pady=15).grid(row=0,column=3)
+name=Label(root,text="name")
+id=Label(root,text="id")
+course=Label(root,text="course")
+city=Label(root,text="city")
+
+name.grid(row=1, column=2)
+id.grid(row=2, column=2)
+course.grid(row=3, column=2)
+city.grid(row=4, column=2)
+
+namevalue=StringVar()
+idvalue=StringVar()
+coursevalue=StringVar()
+cityvalue=StringVar()
+amitianvalue=IntVar()
+
+nameentry=Entry(root,text=namevalue)
+identry=Entry(root,text=idvalue)
+courseentry=Entry(root,text=coursevalue)
+cityentry=Entry(root,text=cityvalue)
+
+nameentry.grid(row=1, column=3)
+identry.grid(row=2, column=3)
+courseentry.grid(row=3, column=3)
+cityentry.grid(row=4, column=3)
+
+amitian=Checkbutton(text="Are you Amitian",variable=amitianvalue)
+amitian.grid(row=6,column=3)
+
+widget=Button(text="Submit",command=getvals).grid(row=7,column=3)
+
+root.mainloop()
